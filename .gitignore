@@ -4,6 +4,9 @@
 !.env.example
 node_modules/
 dist/
+.astro/
 .next/
 coverage/
 *.log
+.vercel
+.env*

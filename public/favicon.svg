@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <title>Hopscotch</title>
+  <g fill="#0a0a0a">
+    <rect x="6" y="1" width="9" height="9" />
+    <rect x="6" y="12" width="9" height="9" />
+    <rect x="17" y="12" width="9" height="9" />
+    <rect x="6" y="23" width="9" height="9" />
+  </g>
+</svg>

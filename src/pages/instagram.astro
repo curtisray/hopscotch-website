@@ -1,0 +1,101 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Mark from '../components/Mark.astro';
+import cansImage from '../assets/images/hopscotch-beverage-cans-lifestyle.png';
+import danchelHero from '../assets/images/danchel-hero-experience.png';
+import danchelBundle from '../assets/images/danchel-bundle-checkout.png';
+import danchelEmail from '../assets/images/danchel-email-capture.png';
+import intakeImage from '../assets/images/catalys-intake-boxes.png';
+import '../styles/global.css';
+import '../styles/instagram.css';
+
+export const prerender = true;
+
+const services = ['Ecommerce design & development', 'Shopify storefronts', 'Digital brand identity', 'Ecommerce migrations', 'Site performance & optimization', 'Ongoing improvements'];
+---
+
+<BaseLayout title="A better storefront for your product — Hopscotch" description="Hopscotch builds brands and ecommerce experiences for independent product companies in the Bay Area and beyond.">
+  <header class="ig-header">
+    <a class="brand" href="/" aria-label="Hopscotch home"><Mark /><span>hopscotch</span></a>
+    <a class="ig-header__cta" href="#inquiry">Tell us about your brand <span>↘</span></a>
+  </header>
+
+  <main id="top" class="ig-page">
+    <section class="ig-hero">
+      <div class="ig-hero__copy">
+        <p class="ig-kicker" data-reveal>Brand + ecommerce for physical products</p>
+        <h1 data-reveal data-delay="1">Your product deserves a <em>better storefront.</em></h1>
+        <p class="ig-hero__lede" data-reveal data-delay="2">Hopscotch builds brands and ecommerce experiences for independent product companies.</p>
+        <a class="ig-button" href="#inquiry" data-reveal data-delay="3">Tell us about your brand <span>↘</span></a>
+      </div>
+      <div class="ig-hero__visual" data-reveal data-reveal-image data-delay="1">
+        <Image src={cansImage} alt="Colorful beverage cans held outdoors" widths={[640, 960, 1280]} sizes="(max-width: 720px) 100vw, 48vw" format="avif" quality={78} loading="eager" fetchpriority="high" />
+        <span class="ig-hero__stamp">Small brand<br />Big presence</span>
+      </div>
+    </section>
+
+    <section class="ig-proof" aria-labelledby="work-heading">
+      <div class="ig-section-head" data-reveal>
+        <p class="ig-kicker">Selected work</p>
+        <h2 id="work-heading">Made to look good.<br /><em>Built to sell.</em></h2>
+        <p>From the first scroll to the final click, every detail should make your product feel worth choosing.</p>
+      </div>
+      <div class="ig-work-grid">
+        <a class="ig-work ig-work--hero" href="/danchel" data-reveal>
+          <Image src={danchelHero} alt="Danchel ecommerce storefront redesign" widths={[720, 1200, 1800]} sizes="(max-width: 720px) 100vw, 66vw" format="avif" quality={80} />
+          <span class="ig-work__label"><small>Danchel · Complete storefront overhaul</small><strong>A product story people can feel.</strong></span>
+        </a>
+        <div class="ig-work ig-work--detail" data-reveal data-delay="1"><Image src={danchelBundle} alt="Product bundle and subscription interface" widths={[480, 760, 1100]} sizes="(max-width: 720px) 100vw, 34vw" format="avif" quality={80} /><span class="ig-work__tag">Buying experience</span></div>
+        <div class="ig-work ig-work--detail" data-reveal><Image src={danchelEmail} alt="Branded email capture experience" widths={[480, 760, 1100]} sizes="(max-width: 720px) 100vw, 34vw" format="avif" quality={80} /><span class="ig-work__tag">Brand moments</span></div>
+        <a class="ig-result" href="/danchel" data-reveal data-delay="1"><span>Same traffic.<br />A better storefront.</span><strong>3% <i>→</i> 16%</strong><small>conversion after launch</small><b>See the case study ↗</b></a>
+      </div>
+    </section>
+
+    <section class="ig-services" id="services">
+      <div class="ig-services__intro" data-reveal><p class="ig-kicker">What we do</p><h2>We make small product brands <em>look big.</em></h2></div>
+      <ul>{services.map((service, index) => <li data-reveal data-delay={String(index % 3)}><span>{String(index + 1).padStart(2, '0')}</span>{service}</li>)}</ul>
+    </section>
+
+    <section class="ig-brands">
+      <div class="ig-brands__image" data-reveal data-reveal-image><Image src={intakeImage} alt="Colorful specialty food product packaging" widths={[640, 960, 1280]} sizes="(max-width: 720px) 100vw, 50vw" format="avif" quality={78} /></div>
+      <div class="ig-brands__copy" data-reveal data-delay="1">
+        <p class="ig-kicker">Who we work with</p>
+        <h2>For people who put something <em>real</em> into the world.</h2>
+        <p>We partner with independent physical-product companies—with a soft spot for the people roasting, brewing, bottling, blending, pouring, and making by hand.</p>
+        <p class="ig-categories">Coffee · Food · Drinks · Wellness · Soap · Specialty Goods</p>
+        <p class="ig-location"><span>Based around the Bay Area.</span> Working with good brands everywhere.</p>
+      </div>
+    </section>
+
+    <section class="ig-inquiry" id="inquiry">
+      <div class="ig-inquiry__intro" data-reveal><p class="ig-kicker">A good place to start</p><h2>Tell us about <em>your brand.</em></h2><p>No pitch deck needed. Send us a little context and we’ll reply like a human.</p></div>
+      <form id="instagram-form" action="/api/proposal" method="post" data-reveal data-delay="1">
+        <input type="hidden" name="source" value="instagram" />
+        <div class="ig-form-row"><label><span>Name</span><input name="name" autocomplete="name" placeholder="Your name" required maxlength="120" /></label><label><span>Company</span><input name="business" autocomplete="organization" placeholder="Your brand" required maxlength="120" /></label></div>
+        <div class="ig-form-row"><label><span>Website</span><input name="website" inputmode="url" autocomplete="url" placeholder="yourbrand.com" maxlength="240" /></label><label><span>Email</span><input type="email" name="email" autocomplete="email" placeholder="you@yourbrand.com" required maxlength="254" /></label></div>
+        <label><span>What would you like help with?</span><textarea name="message" rows="4" placeholder="A new storefront, a stronger brand, a migration…" required minlength="10" maxlength="3000"></textarea></label>
+        <label class="form-honeypot" aria-hidden="true">Leave blank<input name="contact_url" tabindex="-1" autocomplete="off" /></label>
+        <div class="ig-form-submit"><button type="submit">Start a conversation <span>→</span></button><p class="form-status" role="status" aria-live="polite"></p></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="ig-footer"><a class="brand" href="/"><Mark /><span>hopscotch</span></a><p>Brand + ecommerce for independent product companies.</p><span>Bay Area · California</span></footer>
+
+  <script is:inline>
+    (() => {
+      const items = document.querySelectorAll('[data-reveal]');
+      if (!('IntersectionObserver' in window)) items.forEach((item) => item.classList.add('is-visible'));
+      else { const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }), { rootMargin:'0px 0px -6% 0px', threshold:.08 }); items.forEach((item) => observer.observe(item)); }
+      const form = document.querySelector('#instagram-form');
+      if (!(form instanceof HTMLFormElement)) return;
+      const button = form.querySelector('button'); const status = form.querySelector('.form-status');
+      form.addEventListener('submit', async (event) => { event.preventDefault(); if (!form.reportValidity()) return; if (button) { button.disabled = true; button.innerHTML = 'Sending…'; } if (status) status.textContent = '';
+        try { const response = await fetch(form.action, { method:'POST', headers:{ Accept:'application/json' }, body:new FormData(form) }); const result = await response.json().catch(() => ({})); if (!response.ok) throw new Error(result.error || 'Unable to send your note.'); form.reset(); if (status) { status.textContent = "Thanks — we’ll be in touch soon."; status.className = 'form-status form-status--success'; } }
+        catch (error) { if (status) { status.textContent = error instanceof Error ? error.message : 'Something went wrong. Please try again.'; status.className = 'form-status form-status--error'; } }
+        finally { if (button) { button.disabled = false; button.innerHTML = 'Start a conversation <span>→</span>'; } }
+      });
+    })();
+  </script>
+</BaseLayout>

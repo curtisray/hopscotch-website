@@ -1,0 +1,91 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Mark from '../components/Mark.astro';
+import heroExperience from '../assets/images/danchel-hero-experience.png';
+import bundleCheckout from '../assets/images/danchel-bundle-checkout.png';
+import emailCapture from '../assets/images/danchel-email-capture.png';
+import subscriptionBar from '../assets/images/danchel-subscription-bar.png';
+import '../styles/global.css';
+import '../styles/danchel.css';
+
+export const prerender = true;
+---
+
+<BaseLayout title="Danchel Case Study — Hopscotch" description="How Hopscotch rebuilt Danchel's digital experience, raising conversion from 3% to 16% and average customer LTV from $30 to $60.">
+  <header class="site-header case-header">
+    <a class="brand" href="/" aria-label="Hopscotch home"><Mark /><span>hopscotch</span></a>
+    <nav aria-label="Case study navigation"><a href="/#work">Work</a><a href="/#services">Services</a><a class="button" href="/#contact">Start a project</a></nav>
+  </header>
+
+  <main class="case-study">
+    <section class="case-hero">
+      <div class="case-hero__meta" data-reveal><span>Case study · 001</span><span>Beauty / D2C</span><span>Completed in 3 weeks</span></div>
+      <h1 data-reveal data-delay="1">Danchel went from a Shopify theme to a <em>conversion engine.</em></h1>
+      <p data-reveal data-delay="2">We rebuilt the entire digital experience—brand, storefront, buying journey, bundles, subscriptions, and measurement—then watched the same word-of-mouth and Facebook traffic perform radically better.</p>
+      <div class="case-hero__image" data-reveal data-reveal-image data-delay="2">
+        <Image src={heroExperience} alt="Danchel's redesigned Pink Balm product landing experience" widths={[720, 1200, 1800, 2400]} sizes="100vw" format="avif" quality={80} loading="eager" fetchpriority="high" />
+      </div>
+    </section>
+
+    <section class="result-strip" aria-label="Project results">
+      <article data-reveal><span>Conversion rate</span><strong><small>3%</small><i>→</i>16%</strong><p>5.3× higher conversion from the existing traffic mix.</p></article>
+      <article data-reveal data-delay="1"><span>Average customer LTV</span><strong><small>$30</small><i>→</i>$60</strong><p>2× LTV after bundles and recurring delivery.</p></article>
+      <article data-reveal data-delay="2"><span>Production</span><strong>3 weeks</strong><p>From a drag-and-drop theme to a complete D2C system.</p></article>
+    </section>
+
+    <section class="case-narrative">
+      <div data-reveal><p class="eyebrow">The starting point</p><h2>A product people shared. A storefront that <em>lost the handoff.</em></h2></div>
+      <div class="case-copy" data-reveal data-delay="1">
+        <p>Danchel already had demand. Customers arrived through word of mouth and Facebook ads, but the standard Shopify theme was slow, visually undifferentiated, and built around pages—not persuasion.</p>
+        <p>The product story, proof, offer structure, and path to purchase all competed for attention. Valuable traffic was reaching the site, but only 3% converted and the average customer was worth about $30 over their lifetime.</p>
+      </div>
+    </section>
+
+    <section class="transformation">
+      <div class="transformation__heading" data-reveal><p class="eyebrow">The overhaul</p><h2>We rebuilt every moment between <em>curiosity and checkout.</em></h2></div>
+      <div class="service-list">
+        <article data-reveal><span>01</span><h3>Position the product</h3><p>We replaced generic theme merchandising with a focused narrative: clear benefit language, tangible product education, social proof, guarantees, and a visual system distinctive enough to remember.</p></article>
+        <article data-reveal data-delay="1"><span>02</span><h3>Engineer the storefront</h3><p>We designed and developed a fast, conversion-led frontend, migrated the experience, tightened analytics, and created a system the team could operate without sacrificing quality.</p></article>
+        <article data-reveal data-delay="2"><span>03</span><h3>Rebuild the offer</h3><p>We introduced product bundles and recurring delivery directly into the buying path—making the higher-value choice obvious, useful, and easy rather than hiding it after product selection.</p></article>
+      </div>
+    </section>
+
+    <section class="case-visual case-visual--bundle">
+      <div class="case-visual__copy" data-reveal><p class="eyebrow">The conversion layer</p><h2>More choice, <em>less friction.</em></h2><p>Single, Duo, and Stash options translated quantity into real customer use cases. Subscription savings appeared at the moment of purchase, supported by free shipping, a guarantee, free returns, and the freedom to pause or cancel.</p></div>
+      <div class="case-visual__frame" data-reveal data-reveal-image data-delay="1"><Image src={bundleCheckout} alt="Danchel bundle and subscription purchase interface" widths={[720, 1200, 1800, 2400]} sizes="(max-width: 760px) 100vw, 62vw" format="avif" quality={80} /></div>
+    </section>
+
+    <section class="details-grid">
+      <div class="detail-image detail-image--email" data-reveal data-reveal-image><Image src={emailCapture} alt="Danchel welcome offer email capture" widths={[420, 760, 1080]} sizes="(max-width: 760px) 100vw, 45vw" format="avif" quality={80} /></div>
+      <div class="detail-copy" data-reveal data-delay="1"><p class="eyebrow">Retention starts early</p><h2>Capture the customer before the first order.</h2><p>A brand-matched welcome flow turned anonymous interest into an owned audience without dropping a generic marketing widget into the experience.</p><div class="detail-rule"></div><p class="eyebrow">Always visible value</p><Image class="subscription-shot" src={subscriptionBar} alt="Danchel subscription and fulfillment message" widths={[720, 1200, 1800]} sizes="(max-width: 760px) 100vw, 45vw" format="avif" quality={85} /></div>
+    </section>
+
+    <section class="outcomes">
+      <p class="eyebrow" data-reveal>Three months after launch</p>
+      <h2 data-reveal data-delay="1">The funnel stayed. <em>The economics changed.</em></h2>
+      <div class="outcome-grid">
+        <article data-reveal><span>Before</span><strong>3%</strong><p>site conversion</p></article><i>→</i><article class="after" data-reveal data-delay="1"><span>After</span><strong>16%</strong><p>site conversion</p></article>
+        <article data-reveal><span>Before</span><strong>$30</strong><p>average LTV</p></article><i>→</i><article class="after" data-reveal data-delay="1"><span>After</span><strong>$60</strong><p>average LTV</p></article>
+      </div>
+      <p class="outcomes__note" data-reveal>These were definitive client outcomes measured within three months of project completion, using the same core acquisition channels: customer word of mouth and Facebook advertising.</p>
+    </section>
+
+    <section class="case-cta">
+      <p class="eyebrow" data-reveal>Build the next version</p>
+      <h2 data-reveal data-delay="1">Your traffic should be worth <em>more.</em></h2>
+      <div class="case-cta__links" data-reveal data-delay="2"><a class="button" href="/#contact">Tell us about your business →</a><a class="text-link" href="https://officialdanchel.com" target="_blank" rel="noopener noreferrer">Visit Danchel ↗</a></div>
+    </section>
+  </main>
+
+  <footer class="case-footer"><a class="brand" href="/"><Mark /><span>hopscotch</span></a><span>© 2026 Hopscotch</span></footer>
+
+  <script is:inline>
+    (() => {
+      const items = document.querySelectorAll('[data-reveal]');
+      if (!('IntersectionObserver' in window)) { items.forEach((item) => item.classList.add('is-visible')); return; }
+      const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }), { rootMargin:'0px 0px -8% 0px', threshold:.08 });
+      items.forEach((item) => observer.observe(item));
+    })();
+  </script>
+</BaseLayout>

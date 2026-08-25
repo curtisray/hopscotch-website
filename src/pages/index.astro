@@ -1,0 +1,164 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Mark from '../components/Mark.astro';
+import cansImage from '../assets/images/hopscotch-beverage-cans-lifestyle.png';
+import intakeImage from '../assets/images/catalys-intake-boxes.png';
+import danchelHero from '../assets/images/danchel-hero-experience.png';
+import hydrogenLogo from '../assets/images/hydrogen-logo.webp';
+import contentfulLogo from '../assets/images/contentful-logo.webp';
+import shopifyLogo from '../assets/images/shopify-logo.webp';
+import '../styles/global.css';
+
+export const prerender = true;
+
+const phases = [
+  { number: '01', title: 'Brand', items: ['Get an understanding of the brand, current systems and tools', 'Talk through vision, angles, and customers', 'Make a plan for build'] },
+  { number: '02', title: 'Build', items: ['Build out the frontend of the brand on our tech stack', 'Optimize for speed and integrate with your team via Contentful', 'Start data migration from legacy platforms'] },
+  { number: '03', title: 'Growth', items: ['Continue to talk vision', 'Continually test and iterate on platform setup', 'Improve conversions site-side', 'Test angles and experiment'] },
+];
+
+const faqs = [
+  ['How much does it cost?', 'One scoped project build cost that covers design, build, and migration. We give you the number up front — no retainers, no metered access.'],
+  ['How long does a build take?', 'Timing depends on the size of your storefront, the systems involved, and the migration scope. We confirm the schedule with you before the project begins.'],
+  ['What happens to our data on Shopify or our current platform?', 'We map and migrate the agreed storefront, customer, and order data, validate it before launch, and plan the cutover to minimize disruption.'],
+  ['Do we actually own it afterward?', 'Yes. When the build is done, the code, accounts, and data all transfer to you and your team. You run it going forward.'],
+];
+---
+
+<BaseLayout title="Hopscotch — Your end-to-end D2C partner" description="Hopscotch builds, launches, and scales high-performance direct-to-consumer platforms for product brands.">
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Hopscotch home"><Mark /><span>hopscotch</span></a>
+    <nav aria-label="Primary navigation">
+      <a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a class="button" href="#contact">Get a proposal</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero__copy">
+        <p class="eyebrow" data-reveal>Wellness · Draft Beer · Coffee · Local Business</p>
+        <h1 data-reveal data-delay="1">Your end-to-end D2C partner: <em>we build, launch, and scale your platform.</em></h1>
+        <div class="pillars" data-reveal data-delay="2"><span>Brand</span><i></i><span>Build</span><i></i><span>Growth</span></div>
+      </div>
+      <div class="hero__image" data-reveal data-reveal-image data-delay="1">
+        <Image src={cansImage} alt="Hands holding Hopscotch beverage cans" widths={[640, 960, 1280]} sizes="(max-width: 760px) 100vw, 48vw" format="avif" quality={72} loading="eager" fetchpriority="high" />
+        <span>Under construction, always</span>
+      </div>
+    </section>
+
+    <section class="stack section-center" id="services" data-reveal-section>
+      <div data-reveal><Mark size="large" /></div>
+      <h2 data-reveal data-delay="1">We handle the tech <em>so you can focus on the brand.</em></h2>
+      <p class="lede" data-reveal data-delay="2">We set you up on a high-performance growth stack built for direct-to-consumer commerce, then carefully migrate the storefront and agreed customer and order data. You end up owning the code and infrastructure your business runs on.</p>
+      <p class="overline" data-reveal>Built on best-in-class foundations</p>
+      <div class="logos" aria-label="Technology partners" data-reveal data-delay="1">
+        <Image class="logo logo--hydrogen" src={hydrogenLogo} alt="Hydrogen" width={260} />
+        <Image class="logo logo--contentful" src={contentfulLogo} alt="Contentful" width={860} />
+        <Image class="logo logo--shopify" src={shopifyLogo} alt="Shopify" width={230} />
+      </div>
+    </section>
+
+    <section class="work" id="work" aria-labelledby="recent-work" data-reveal-section>
+      <div class="work__intro" data-reveal>
+        <p class="eyebrow">Our most recent work</p>
+        <h2 id="recent-work">One overhaul. <em>Measurable change.</em></h2>
+        <p>See how we rebuilt Danchel's entire digital experience and turned the same traffic into more customers with higher lifetime value.</p>
+      </div>
+      <div class="work__grid">
+        <a class="danchel-feature" href="/danchel" aria-label="Read the Danchel case study" data-reveal data-delay="1">
+          <Image src={danchelHero} alt="The redesigned Danchel Pink Balm storefront" widths={[720, 1200, 1800]} sizes="calc(100vw - 32px)" format="avif" quality={78} />
+          <span class="danchel-feature__shade"></span>
+          <span class="danchel-feature__arrow" aria-hidden="true">↗</span>
+          <span class="danchel-feature__copy"><small>Beauty · Brand + Build + Growth</small><strong>Danchel</strong><span>3% → 16% conversion</span></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="studio">
+      <div class="content-wrap"><p class="eyebrow" data-reveal>How we work</p><h2 data-reveal data-delay="1">One engagement, <em>three phases.</em></h2>
+        <div class="phase-grid" data-reveal data-delay="2">
+          {phases.map((phase) => <article class="phase"><header><strong>{phase.title}</strong><span>{phase.number}</span></header><ul>{phase.items.map((item) => <li>{item}</li>)}</ul></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section ownership">
+      <div class="content-wrap"><p class="eyebrow" data-reveal>Ownership</p><h2 data-reveal data-delay="1">We don't keep your system <em>hostage.</em></h2><p class="lede" data-reveal data-delay="2">No retainers, no lock-in. It's one project build cost — and when the work is done, everything goes to you and your team.</p>
+        <div class="benefit-grid" data-reveal>
+          <article><span>—</span><h3>No retainer</h3><p>We're not a monthly bill that never ends. You pay for the build, not for our permission to keep using it.</p></article>
+          <article><span>1</span><h3>One project build cost</h3><p>A single, scoped cost to design, build, and migrate. No surprise fees, no metered access.</p></article>
+          <article><span>→</span><h3>Full handoff</h3><p>When it's done, the code, accounts, and data are yours. Your team owns and runs the system going forward.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact__image" data-reveal data-reveal-image><Image src={intakeImage} alt="Person carrying colorful Catalys gourmet product boxes" widths={[480, 720, 960]} sizes="(max-width: 760px) 100vw, 42vw" format="avif" quality={75} /><span>Let's build yours</span></div>
+      <div class="contact__form"><p class="eyebrow" data-reveal>Get a proposal</p><h2 data-reveal data-delay="1">Tell us about <em>your business.</em></h2><p class="lede" data-reveal data-delay="2">Send a few details and we'll come back with a scoped plan and a single build cost — no retainer, no obligation.</p>
+        <form id="proposal-form" action="/api/proposal" method="post" aria-label="Proposal request" data-reveal data-delay="3">
+          <div class="form-row"><label><span>Business name</span><input name="business" autocomplete="organization" placeholder="e.g. Danchel" required maxlength="120" /></label><label><span>Category</span><input name="category" placeholder="Wellness, Beauty, Coffee…" required maxlength="120" /></label></div>
+          <div class="form-row"><label><span>Name</span><input name="name" autocomplete="name" placeholder="Your name" required maxlength="120" /></label><label><span>Email</span><input type="email" name="email" autocomplete="email" placeholder="you@company.com" required maxlength="254" /></label></div>
+          <label><span>What are you trying to fix?</span><textarea name="message" rows="3" placeholder="Current setup, what's not working, and where you want to get to." required minlength="10" maxlength="3000"></textarea></label>
+          <label class="form-honeypot" aria-hidden="true">Website<input name="contact_url" tabindex="-1" autocomplete="off" /></label>
+          <div class="form-submit"><button type="submit">Get a proposal →</button><span>We'll reply directly to the email you provide.</span></div>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="faq content-section">
+      <div class="faq__inner"><div data-reveal><p class="eyebrow">FAQ</p><h2>Good to <em>know.</em></h2></div><div class="faq__list" data-reveal data-delay="1">{faqs.map(([question, answer]) => <article><h3>{question}</h3><p>{answer}</p></article>)}</div></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wordmark" data-reveal><span>hopscotch</span></div>
+    <div class="footer-grid" data-reveal data-delay="1">
+      <div><small>Email</small><a href="mailto:curtisraymaloney@gmail.com">curtisraymaloney@gmail.com</a></div>
+      <div><small>Call us</small><a href="tel:+17079928080">+1 707 992 8080</a></div>
+      <div><small>Services</small><a href="#services">Brand</a><a href="#services">Build</a><a href="#services">Growth</a></div>
+      <div><small>Company</small><a href="#work">Work</a><a href="#studio">Studio</a><a href="#contact">Contact</a></div>
+    </div>
+    <div class="footer-bottom" data-reveal data-delay="2"><span>Sonoma County, California</span><span>Built by hopscotch studio</span><span>© 2026 Hopscotch</span></div>
+  </footer>
+  <script is:inline>
+    (() => {
+      const form = document.querySelector('#proposal-form');
+      if (!(form instanceof HTMLFormElement)) return;
+      const button = form.querySelector('button[type="submit"]');
+      const status = form.querySelector('.form-status');
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+        if (button instanceof HTMLButtonElement) { button.disabled = true; button.textContent = 'Sending…'; }
+        if (status) { status.textContent = ''; status.className = 'form-status'; }
+        try {
+          const response = await fetch(form.action, { method:'POST', headers:{ Accept:'application/json' }, body:new FormData(form) });
+          const result = await response.json().catch(() => ({}));
+          if (!response.ok) throw new Error(result.error || 'Unable to send your request.');
+          form.reset();
+          if (status) { status.textContent = "Thanks — your details are on their way. We'll be in touch soon."; status.className = 'form-status form-status--success'; }
+        } catch (error) {
+          if (status) { status.textContent = error instanceof Error ? error.message : 'Unable to send your request. Please email us directly.'; status.className = 'form-status form-status--error'; }
+        } finally {
+          if (button instanceof HTMLButtonElement) { button.disabled = false; button.textContent = 'Get a proposal →'; }
+        }
+      });
+    })();
+  </script>
+  <script is:inline>
+    (() => {
+      const items = document.querySelectorAll('[data-reveal]');
+      if (!('IntersectionObserver' in window)) { items.forEach((item) => item.classList.add('is-visible')); return; }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      items.forEach((item) => observer.observe(item));
+    })();
+  </script>
+</BaseLayout>

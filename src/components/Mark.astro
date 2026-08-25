@@ -1,0 +1,7 @@
+---
+interface Props { size?: 'small' | 'large' }
+const { size = 'small' } = Astro.props;
+---
+<span class:list={['mark', `mark--${size}`]} aria-hidden="true">
+  <i></i><i></i><i></i><i></i>
+</span>
