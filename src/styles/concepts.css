@@ -1,3 +1,7 @@
+html { width:100%; max-width:100%; overflow-x:hidden; scrollbar-width:none; -ms-overflow-style:none; }
+html::-webkit-scrollbar,body::-webkit-scrollbar { display:none; width:0; height:0; }
+body { width:100%; max-width:100%; overflow-x:hidden; }
+main,.concepts-header,.concepts-intro,.concept,.concepts-close,.concepts-footer { width:100%; max-width:100%; }
 .concepts-header { display:flex; align-items:center; justify-content:space-between; padding:22px 48px; border-bottom:1px solid var(--ink); }
 .concepts-header>span { color:var(--muted); font-size:11px; letter-spacing:.14em; text-transform:uppercase; }
 .concepts-intro { display:grid; grid-template-columns:.55fr 1.35fr .85fr; align-items:start; gap:48px; min-height:72vh; padding:88px 48px 72px; }
@@ -102,10 +106,11 @@
   .brand-world--morrow { grid-template-columns:1fr 1fr; }.morrow-statement{grid-column:1/-1}.morrow-swatches{grid-column:1/-1}.brand-world__image--morrow{grid-column:1/2}.morrow-aside{grid-column:2/3}
 }
 @media(max-width:700px){
+  main { overflow:hidden; }
   .concepts-header { padding:18px 20px; }.concepts-header>span{display:none}
   .concepts-intro { display:block; min-height:auto; padding:72px 20px 80px; }
   .concepts-intro h1 { margin:42px 0 72px; font-size:clamp(68px,23vw,104px); }
-  .concept { padding:76px 12px 0; }
+  .concept { contain:paint; overflow:hidden; padding:76px 12px 0; }
   .concept__heading { display:block; margin:0 8px 48px; }.concept__heading h2{margin:38px 0 28px}
   .demo-nav { grid-template-columns:1fr 1fr; padding:0 14px; }.demo-nav span{display:none}
   .editorial-hero,.bright-hero { grid-template-columns:1fr; }.editorial-hero>.placeholder{min-height:58svh;border-right:0;border-bottom:1px solid}.editorial-hero__copy,.bright-hero__copy{padding:52px 28px 60px}
@@ -116,6 +121,6 @@
   .bright-products { grid-template-columns:1fr; }.bright-products article{border-right:0;border-bottom:1px solid}.bright-products__copy{grid-column:auto}
   .concepts-close { display:block; padding:76px 20px 88px; }.concepts-close h2{margin:36px 0}.concepts-close>a{display:inline-block;margin-top:32px;line-height:1.5}
   .concepts-footer { align-items:flex-start; flex-direction:column; gap:44px; padding:54px 20px 32px; }
-  .brand-world--pep { display:block; min-height:auto; padding:64px 18px 90px; border-width:3px; border-radius:25px; box-shadow:7px 8px 0 #111; }.brand-world__intro{padding:0 10px 54px}.brand-world__intro>span{margin-bottom:28px}.brand-world__intro strong{font-size:64px}.brand-world__image--pep{width:100%;margin:0;border-width:3px;border-radius:18px;box-shadow:6px 7px 0 #111;transform:rotate(0)}.pep-orbit--one{top:-60px;left:auto;right:-45px}.pep-orbit--two{display:none}.pep-ticket{right:28px;bottom:24px;width:260px;padding:14px 16px}
+  .brand-world--pep { display:block; width:100%; min-width:0; min-height:auto; padding:64px 18px 90px; border-width:3px; border-radius:25px; box-shadow:5px 6px 0 #111; }.brand-world__intro{min-width:0;padding:0 10px 54px}.brand-world__intro>span{margin-bottom:28px}.brand-world__intro strong{font-size:clamp(54px,16.5vw,64px);overflow-wrap:anywhere}.brand-world__image--pep{width:100%;min-width:0;margin:0;border-width:3px;border-radius:18px;box-shadow:4px 5px 0 #111;transform:none}.pep-orbit--one{top:-60px;left:auto;right:-38px}.pep-orbit--two{display:none}.pep-ticket{right:22px;bottom:24px;width:min(260px,calc(100% - 44px));padding:14px 16px}
   .brand-world--morrow { display:flex; flex-direction:column; padding:8px; gap:8px; border-radius:18px; }.morrow-statement{padding:38px 20px 30px;border-radius:13px}.morrow-statement span,.morrow-statement strong{font-size:52px}.morrow-swatches{padding:10px;border-radius:13px}.morrow-swatches i{min-height:48px;border-radius:9px}.brand-world__image--morrow{border-radius:13px}.morrow-aside{min-height:400px;padding:28px;border-radius:13px}.morrow-aside strong{font-size:44px}
 }
