@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Mark from '../components/Mark.astro';
+import { Image } from 'astro:assets';
+import pepConcept from '../assets/images/pep-concept.png';
+import morrowConcept from '../assets/images/morrow-concept.png';
+import '../styles/global.css';
+import '../styles/concepts.css';
+
+export const prerender = true;
+---
+
+<BaseLayout title="Concepts — Hopscotch" description="A look at what is possible when a digital storefront is shaped around the product and brand behind it.">
+  <header class="concepts-header">
+    <a class="brand" href="/" aria-label="Hopscotch home"><Mark /><span>hopscotch</span></a>
+    <span>A few things that could be</span>
+  </header>
+
+  <main>
+    <section class="concepts-intro">
+      <p class="eyebrow">Selected directions</p>
+      <h1>Some of what’s <em>possible.</em></h1>
+      <div class="concepts-intro__note">
+        <p>Not templates. Not a prescribed look.</p>
+        <p>These are a few ways a digital storefront can be shaped around the thing that matters most: the product, the people behind it, and what makes the brand worth caring about.</p>
+      </div>
+    </section>
+
+    <section class="concept concept--pep" aria-labelledby="concept-one-title">
+      <header class="concept__heading">
+        <div><span>Direction 01</span><span>PEP · Specialty coffee</span></div>
+        <h2 id="concept-one-title">Build a world worth<br /><em>waking up for.</em></h2>
+        <p>PEP turns a morning staple into something bright, characterful, and unmistakably its own. The digital experience carries that energy through every screen.</p>
+      </header>
+
+      <div class="brand-world brand-world--pep">
+        <div class="pep-orbit pep-orbit--one">freshly roasted</div>
+        <div class="pep-orbit pep-orbit--two">good mornings</div>
+        <div class="brand-world__intro"><span>Bright by nature</span><strong>Coffee with<br />a point of view.</strong><p>A distinct palette, expressive art direction, and clear commerce come together as one recognizable world.</p></div>
+        <figure class="brand-world__image brand-world__image--pep">
+          <Image src={pepConcept} alt="PEP specialty coffee website concepts shown across desktop, tablet, and mobile" widths={[640, 1080, 1600, 2400]} sizes="(max-width: 700px) calc(100vw - 40px), 54vw" quality={90} />
+        </figure>
+        <div class="pep-ticket"><span>01</span><p>One visual language.<br />Every screen.</p><i>↘</i></div>
+      </div>
+
+      <footer class="concept__notes">
+        <span>The idea</span>
+        <p>Don’t flatten a lively brand into a familiar storefront. Let the color, wit, and world-building do real work—then make the path from discovery to purchase feel effortless.</p>
+      </footer>
+    </section>
+
+    <section class="concept concept--morrow" aria-labelledby="concept-two-title">
+      <header class="concept__heading">
+        <div><span>Direction 02</span><span>Morrow · Botanical soda</span></div>
+        <h2 id="concept-two-title">Let the system<br /><em>show the range.</em></h2>
+        <p>Morrow’s identity is direct, modern, and product-first. A modular experience gives every flavor its moment while keeping the full family immediately recognizable.</p>
+      </header>
+
+      <div class="brand-world brand-world--morrow">
+        <div class="morrow-statement"><span>botanical soda</span><strong>for what’s next.</strong></div>
+        <div class="morrow-swatches" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <figure class="brand-world__image brand-world__image--morrow">
+          <Image src={morrowConcept} alt="Morrow botanical soda storefront with colorful product grid and modular content" widths={[600, 1080, 1600, 2160]} sizes="(max-width: 700px) calc(100vw - 40px), 48vw" quality={90} />
+        </figure>
+        <div class="morrow-aside"><span>Built as a system</span><strong>Six flavors.<br />One clear voice.</strong><p>Product discovery, brand story, subscriptions, and social touchpoints all belong to the same visual rhythm.</p><i>→</i></div>
+      </div>
+
+      <footer class="concept__notes">
+        <span>The idea</span>
+        <p>A strong system doesn’t make every product look the same. It creates enough consistency for each difference—the flavor, color, or story—to become more meaningful.</p>
+      </footer>
+    </section>
+
+    <section class="concepts-close">
+      <p class="eyebrow">The common thread</p>
+      <h2>The right experience shouldn’t make your brand look like everyone else. <em>It should make it feel more like itself.</em></h2>
+      <p>We pay attention to what is already there—the character of the product, the details customers notice, and the ambition behind the business—then build from that.</p>
+      <a href="mailto:curtisraymaloney@gmail.com?subject=Something%20that%20could%20be">If something here sparked an idea, we’d be glad to hear it. <span>↗</span></a>
+    </section>
+  </main>
+
+  <footer class="concepts-footer"><a class="brand" href="/"><Mark /><span>hopscotch</span></a><span>Sonoma County, California</span></footer>
+</BaseLayout>
